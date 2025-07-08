@@ -1,4 +1,4 @@
-# 🤖 Lokaler AI-Assistent (ALEX)
+# 🤖 Lokaler AI-Assistent
 
 Ein freundlicher, lokaler AI-Assistent für Linux x64 Systeme, der vollständig in Node.js geschrieben ist und ohne externe APIs funktioniert.
 
