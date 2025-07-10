@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Car Controller</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-car"></i> Raspberry Pi Car Controller</h1>
+            <div class="status-indicator">
+                <span class="status-dot" id="connectionStatus"></span>
+                <span id="connectionText">Connecting...</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="controls-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-toggle-on"></i> 12V Switch Controls</h2>
+                    <button class="emergency-stop" id="emergencyStop">
+                        <i class="fas fa-stop"></i> ALL OFF
+                    </button>
+                </div>
+
+                <div class="switches-grid" id="switchesGrid">
+                    <!-- Switches will be dynamically generated here -->
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-info-circle"></i> System Information</h2>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>System Time</h3>
+                            <p id="systemTime">--:--:--</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h3>Active Switches</h3>
+                            <p id="activeSwitches">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-history"></i>
+                        <div>
+                            <h3>Last Action</h3>
+                            <p id="lastAction">None</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h3>Connected Users</h3>
+                            <p id="connectedUsers">1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> Activity Log</h2>
+                    <button class="clear-log" id="clearLog">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+                <div class="log-container" id="logContainer">
+                    <!-- Log entries will be added here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Raspberry Pi Car Controller | 
+               <span id="ipAddress">IP: Loading...</span> | 
+               <span>Port: 3000</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h3><i class="fas fa-exclamation-triangle"></i> Confirm Action</h3>
+            <p id="confirmMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelBtn">Cancel</button>
+                <button class="btn-confirm" id="confirmBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

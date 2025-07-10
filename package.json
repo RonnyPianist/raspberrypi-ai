@@ -1,0 +1,37 @@
+{
+  "name": "raspberrypi-car-controller",
+  "version": "1.0.0",
+  "description": "Web interface for controlling 12V switches on Raspberry Pi car",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "install-pi": "npm install && sudo npm install -g pm2",
+    "open": "start http://localhost:3000",
+    "quick-start": "npm install && npm start",
+    "deploy-to-pi": "echo 'Copy files to Pi with: scp -r . pi@[PI-IP]:/home/pi/raspberrypi-car/'"
+  },
+  "keywords": [
+    "raspberry-pi",
+    "car",
+    "gpio",
+    "web-interface",
+    "switches",
+    "12v"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "optionalDependencies": {
+    "pigpio": "^3.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
